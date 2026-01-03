@@ -29,7 +29,57 @@
             <pose relative_to="gps_joint">0 0 0.013 0 0 0</pose>
             <always_on>1</always_on>
             <update_rate>1</update_rate>
-            <topic>/navsat</topic>
+<!--            <topic>/navsat</topic>-->
+            <navsat>
+
+                <position_sensing>
+                    <horizontal>
+                        <noise type="gaussian">
+                            <mean>0</mean>
+                            <stddev>0.8</stddev>              <!-- meters -->
+                            <bias_mean>0</bias_mean>
+                            <bias_stddev>0.2</bias_stddev>
+                            <dynamic_bias_stddev>0.005</dynamic_bias_stddev>
+                            <dynamic_bias_correlation_time>7200</dynamic_bias_correlation_time>
+                        </noise>
+                    </horizontal>
+
+                    <vertical>
+                        <noise type="gaussian">
+                            <mean>0</mean>
+                            <stddev>1.5</stddev>              <!-- meters -->
+                            <bias_mean>0</bias_mean>
+                            <bias_stddev>0.5</bias_stddev>
+                            <dynamic_bias_stddev>0.01</dynamic_bias_stddev>
+                            <dynamic_bias_correlation_time>7200</dynamic_bias_correlation_time>
+                        </noise>
+                    </vertical>
+                </position_sensing>
+
+                <velocity_sensing>
+                    <horizontal>
+                        <noise type="gaussian">
+                            <mean>0</mean>
+                            <stddev>0.05</stddev>             <!-- m/s -->
+                            <bias_mean>0</bias_mean>
+                            <bias_stddev>0.01</bias_stddev>
+                            <dynamic_bias_stddev>0.001</dynamic_bias_stddev>
+                            <dynamic_bias_correlation_time>7200</dynamic_bias_correlation_time>
+                        </noise>
+                    </horizontal>
+
+                    <vertical>
+                        <noise type="gaussian">
+                            <mean>0</mean>
+                            <stddev>0.1</stddev>              <!-- m/s -->
+                            <bias_mean>0</bias_mean>
+                            <bias_stddev>0.02</bias_stddev>
+                            <dynamic_bias_stddev>0.002</dynamic_bias_stddev>
+                            <dynamic_bias_correlation_time>7200</dynamic_bias_correlation_time>
+                        </noise>
+                    </vertical>
+                </velocity_sensing>
+            </navsat>
         </sensor>
     </gazebo>
 
